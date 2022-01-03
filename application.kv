@@ -1,0 +1,43 @@
+<LoginPage>:
+    name: "login"
+    username: username_id
+    password: password_id
+
+    BoxLayout:
+        
+        orientation: "vertical"
+        padding: 20
+        spacing: 10
+
+        Label:
+            text: "Enter Username:"
+            size_hint: 0.31,0.15
+
+        TextInput:
+            id: username_id
+            multiline: False
+            size_hint: 1,0.2
+        
+        Label:
+            text: "Enter Password:"
+            size_hint: 0.31,0.15
+
+        TextInput:
+            id: password_id
+            multiline: False
+            size_hint: 1,0.2
+        
+        Button:
+            text: "Submit"
+            on_press:
+                root.manager.current = "main"
+                root.check()
+                root.manager.transition.direction = "up"
+
+<MainPage>:
+    name: "main"
+    Button:
+        text: "Go back"
+        on_press:
+            root.manager.current = "login"
+            root.manager.transition.direction = "down"
